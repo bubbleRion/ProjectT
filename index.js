@@ -1,4 +1,4 @@
-
+import moveroad from './moveroad.js'
 
 const root = document.getElementById("root")
 const body = document.body
@@ -21,7 +21,9 @@ function createSquare(){
     square.style.left = `${squarePostionLeft}px`
     square.style.top = `${squarePostionTop}px`
     root.appendChild(square)
-    return square
+    return {square, squarePostionLeft, squarePostionTop}
 }
 
-
+setInterval(()=>{
+    moveroad(createSquare())
+}, 1000)
