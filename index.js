@@ -1,5 +1,5 @@
 import moveroad from './moveroad.js'
-
+import playermove from './playermove.js'
 const root = document.getElementById("root")
 const body = document.body
 const road = document.createElement("div")
@@ -27,3 +27,5 @@ function createSquare(){
 setInterval(()=>{
     moveroad(createSquare())
 }, 1000)
+
+playermove()
