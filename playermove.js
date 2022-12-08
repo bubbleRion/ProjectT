@@ -1,5 +1,6 @@
 export default function playerMove(){
     let player = document.createElement("div")
+    let jump = 30
     let playerSize = 30
     let playerPositionLeft = playerSize * 2
     let playerPositionBottom = playerSize * 8
@@ -13,17 +14,18 @@ export default function playerMove(){
     root.appendChild(player)
     window.addEventListener("keydown",(e)=>{
         if(e.code === "Space"){
-            let jump = 30
             player.style.bottom = `${playerPositionBottom + jump}px`
             setTimeout(()=>{
                 player.style.bottom = `${playerPositionBottom + jump + jump}px`
-            }, 300)
+            }, 200)
             setTimeout(()=>{
                 player.style.bottom = `${playerPositionBottom + jump}px`
-            }, 600)
+            }, 400)
             setTimeout(()=>{
                 player.style.bottom = `${playerPositionBottom}px`
-            }, 900)
+            }, 600)
+            // console.log(player.style.bottom)
         }
     })
+    return {player, playerPositionLeft, playerPositionBottom, jump}
 }

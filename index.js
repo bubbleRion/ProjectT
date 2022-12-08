@@ -1,7 +1,10 @@
 import moveroad from './moveroad.js'
 import playermove from './playermove.js'
+import alive from './alive.js'
+
 const root = document.getElementById("root")
 const body = document.body
+console.log()
 const road = document.createElement("div")
 
 road.style.width = "100vw"
@@ -24,8 +27,12 @@ function createSquare(){
     return {square, squarePostionLeft, squarePostionTop}
 }
 
-setInterval(()=>{
+let stopRoad = setInterval(()=>{
     moveroad(createSquare())
 }, 1000)
 
 playermove()
+
+
+alive(playermove(), moveroad(createSquare()) , stopRoad , body.clientWidth)
+

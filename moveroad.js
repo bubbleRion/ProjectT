@@ -1,11 +1,12 @@
 export default function moveRoad(create){
-    let randomSpeed = Math.floor((Math.random() + 7) * 7)
-    let moveSquare = randomSpeed
+
+    let speed = 50
+    let moveSquare = speed
     let square = create.square
-    let squarePostionLeft = create.squarePostionLeft
     setInterval(()=>{
-        moveSquare += randomSpeed
+        let squarePostionLeft = create.squarePostionLeft
+        moveSquare += speed
         square.style.left = `${squarePostionLeft - moveSquare}px`
     }, 100)
-    return square
+    return {square, speed, moveSquare}
 }
